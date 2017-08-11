@@ -1,0 +1,10 @@
+#adminmenu #toplevel_page_wp99234 .menu-icon-generic div.wp-menu-image::before {
+	content:"";
+	background: url('../images/logo_compact_500px.png') no-repeat center;
+	background-size: 100%;
+	opacity: .65;
+}
+
+#adminmenu #toplevel_page_wp99234:hover .menu-icon-generic div.wp-menu-image::before {
+	opacity: .95;
+}

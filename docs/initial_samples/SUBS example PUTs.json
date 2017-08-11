@@ -1,0 +1,270 @@
+// PUT /customers/5.json
+
+// All attributes keys are optional i.e. don't have to provide an "fname" key if you don't want to
+// cc_number, you can either provide a string starting with '#' or an acutal valid cc number. valid cc numbers will be returned as "#### #### #### 1234" and cc_type will be set.
+// delivery_suburb_id and billing_suburb_id will need some discussion.
+// same_billing is a boolean, if true, the delivery_address and delivery_suburb will be used as the billing address and suburb
+// gender: 'm', 'f', '-'
+// birthday: a variety of parsable dates e.g. "12/12/1980"
+// notify shipments/payments/newsletters: pipe delimited string indicating customer notification preferences. e.g. if "" then the customer won't receive any notifications regarding shipments, if '@' only emails.
+// fname, lname, company_name, delivery_instructions, delivery_address and delivery_suburb will be used as default values when creating a order/shipment for a customer but can be overriden for a specific order/shipment
+
+{
+   "customer":{  
+      "fname":"Adelaida",
+      "lname":"Aigner",
+      "email":"adeaig@optusnet.com",
+      "billing_address":"GPO Box 2598",
+      "gender":"-",
+      "phone":"03 9988 5045",
+      "cc_name":"Ms Adelaida Aigner",
+      "cc_number":"#### #### #### 2346",
+      "cc_exp_month":"05",
+      "cc_exp_year":"17",
+      "delivery_suburb_id":141,
+      "billing_suburb_id":133,
+      "delivery_address":"Level 3 85 William St",
+      "birthday":null,
+      "notify_shipments":"sms|@",
+      "notify_payments":"sms|@",
+      "notify_newsletters":"sms|@|fb|tw",
+      "notify_renewals":"",
+      "delivery_instructions":null,
+      "same_billing":false,
+      "mobile":"042334234",
+      "company_name":null,
+   }
+}
+
+
+
+// PUT /orders/113.json
+
+// Again, all attribute keys are optional. However, if you are updating a specific, existing, orderline, you need to provide the id
+
+// shipment_date is special in that passing the string 'none' turn the order to a pickup. i.e. the order will be not be delivered via postal service, but instead is sold on-location. 
+
+// _destroy is a boolean that will destroy that specific orderline if set to true, it won't be returned in the response if it was successfully destroyed (and will be a 200 response)
+
+
+{  
+   "order":{  
+      "source":"staff",
+      "customer_id":5,
+      "membership_id":null,
+      "status":"confirmed",
+      "fname":"Adelaida",
+      "lname":"Aigner",
+      "company_name":"CompanyName",
+      "user_id":2,
+      "shipment_date":"2015-01-28T03:28:11.260Z",
+      "total_qty":5,
+      "orderlines":[  
+         {  
+            "id":427,
+            "name":"Angullong Chardonnay Pinot Noir",
+            "qty":"2",
+            "product_id":16,
+            "_destroy":true
+         },
+         {  
+            "id":427,
+            "name":"2012 Angullong Shiraz",
+            "qty":"3",
+            "product_id":12,
+            "_destroy":true
+         },
+  		],
+      "shipment":{  
+         "shipment_date":"28 Jan 2015",
+         "delivery_instructions":"Delivery instructions",
+         "delivery_address":"Level 3 85 William St",
+         "delivery_suburb_id":141,
+         "ship_carrier_pref":"Auspost",
+         "payment_notes":null,
+         "squeeze_carton":null,
+         "carton_override":null,
+      },
+   }
+}
+
+
+
+
+// A very basic order creation example
+// POST /orders.json
+
+{  
+   "order":{  
+      "customer_id":5,
+      "source":"troly", //Not required, but this will likely change to 'web' so that we can start to identify orders placed through websites
+   }
+}
+
+// Response
+{  
+   "id":114,
+   "total_tax1":"0.0",
+   "total_tax2":"0.0",
+   "total_value":"0.0",
+   "payment_status":"none",
+   "payment_status_details":null,
+   "name":"Aigner, Adelaida",
+   "source":"troly",
+   "created_at":"2015-01-28T16:16:19.917+11:00",
+   "company_id":2,
+   "customer_id":5,
+   "payment_id":null,
+   "membership_id":null,
+   "invoice_id":null,
+   "status":"draft",
+   "number":"0114-215",
+   "membership_shipment_number":null,
+   "fname":"Adelaida",
+   "lname":"Aigner",
+   "company_name":null,
+   "ols_customer_editable":"y",
+   "delay_until":null,
+   "points_redeemed":null,
+   "points_earned":null,
+   "stock_location":"stock",
+   "merchant_price":"0.0",
+   "membership_notes":null,
+   "classname":"Order",
+   "shipment_date":null,
+   "total_qty":0.0,
+   "errors":{  
+
+   },
+   "orderlines":[  
+
+   ]
+}
+
+
+
+
+
+// Customer creation example
+// POST /customers.json
+{  
+   "customer":{  
+      "fname":"Jim",
+      "lname":"Beam",
+      "email":"jbeam@empireone.com.au"
+   }
+}
+
+// Response
+{  
+   "id":1037,
+   "fname":"Jim",
+   "lname":"Beam",
+   "email":"jbeam@empireone.com.au",
+   "billing_address":null,
+   "gender":"-",
+   "phone":null,
+   "cc_name":null,
+   "cc_number":null,
+   "cc_exp_month":null,
+   "cc_exp_year":null,
+   "cc_cvv":null,
+   "cc_type":null,
+   "delivery_suburb_id":null,
+   "billing_suburb_id":null,
+   "delivery_address":null,
+   "birthday":null,
+   "notify_shipments":"sms|@",
+   "notify_payments":"sms|@",
+   "notify_newsletters":"sms|@|fb|tw",
+   "notify_renewals":"",
+   "billing_suburb":null,
+   "delivery_suburb":null,
+   "delivery_instructions":null,
+   "same_billing":true,
+   "mobile":null,
+   "company_name":null,
+   "classname":"Customer",
+   "errors":{  
+
+   }
+}
+
+
+// Example with errors
+// POST /customers.json
+{  
+   "customer":{  
+      "fname":"Jim",
+      "lname":"Beam",
+      "email":"invalidemail"
+   }
+}
+
+// Response
+{  
+   "id":null,
+   "fname":"Jim",
+   "lname":"Beam",
+   "email":"invalidemail",
+   "billing_address":null,
+   "gender":"-",
+   "phone":null,
+   "cc_name":null,
+   "cc_number":null,
+   "cc_exp_month":null,
+   "cc_exp_year":null,
+   "cc_cvv":null,
+   "cc_type":null,
+   "delivery_suburb_id":null,
+   "billing_suburb_id":null,
+   "delivery_address":null,
+   "birthday":null,
+   "notify_shipments":"sms|@",
+   "notify_payments":"sms|@",
+   "notify_newsletters":"sms|@|fb|tw",
+   "notify_renewals":"",
+   "billing_suburb":null,
+   "delivery_suburb":null,
+   "delivery_instructions":null,
+   "same_billing":true,
+   "mobile":null,
+   "company_name":null,
+   "classname":"Customer",
+   "errors":{  
+      "email":[  
+         "is invalid"
+      ],
+      "user.email":[  
+         "is invalid"
+      ]
+   }
+}
+
+
+
+
+
+
+
+
+// Draft example of shipping cost quote
+// POST /shipments/quote.json
+{
+	"delivery_suburb":"Ulong, NSW 2450", // Same as order.shipment.delivery_suburb
+	"products": [
+		{
+			"id":16,
+			"qty":2
+		},
+		{
+			"id":17,
+			"qty":3
+		},		
+	]
+}
+
+// Response (very draft)
+{
+	"512" // in cents
+}

@@ -1,0 +1,56 @@
+// Example of shipping cost quote
+// POST /shipments/quote.json
+{
+	"delivery_suburb_id":1367, // At least one delivery_suburb_* param should be provided. More can be used to be more specific.
+	"delivery_suburb_name":"Ulong",
+	"delivery_suburb_poscode": 2450,
+	"delivery_suburb_state": "NSW",
+	"products": [
+		{
+			"id":16,
+			"qty":2
+		},
+		{
+			"id":17,
+			"qty":3
+		},		
+	]
+}
+
+// Response status: 200 Ok
+{
+	"price":40.15,
+	"delivery_suburb":"Ulong, NSW 2450"
+}
+
+
+
+
+// Error example
+{
+	"delivery_suburb_name":"Fakeville",
+	"delivery_suburb_poscode": 9999,
+	"delivery_suburb_state": "NSW",
+	"products": [
+		{
+			"id":16,
+			"qty":2
+		},
+		{
+			"id":17,
+			"qty":3
+		},		
+	]
+}
+
+// error response status: 422 unprocessable entity
+{
+	"error":"Suburb not found"
+}
+
+
+
+// Another example error status: 422 unprocessable entity
+{
+	"error":"No shipping provider configured."
+}

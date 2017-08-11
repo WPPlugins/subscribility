@@ -1,0 +1,28 @@
+// Example process_payment call
+// Valid payments types: offline auth charge refund void_auth
+// In your case, do an auth if shipment, charge if not a shipment
+// You can process the payment of multiple orders at a time, or just 1
+// Hitting this route successfully will queue up a delayed job to process the payment
+// The job is not guaranteed to run within any specific timeframe, but a websocket channel name returned to listen for events.
+
+// PUT /orders/1
+{
+    "status": "confirmed",
+    "payment_type": "auth"
+}
+
+// Example response
+// This is the channel name for a websockets channel that you can subscribe to for updates and completion of the queued payment job
+// We're using https://github.com/websocket-rails/websocket-rails/wiki/Using-the-JavaScript-Client 
+// which isn't directly applicable to WP, but you can get an idea of how it works.
+// There are 2 types of events when subscribed to a channel, 'control' and 'update'
+// 'control' events can either be 'start' or 'end'
+// 'update' is one of update, error, progress or result
+
+// For now, you can basically ignore all of these except the 'end' message, which indicates that processing is finished. 
+// You should then go and pull the order (GET /orders/:id) and check order.payment_status to see if it was successful (it'll say 'auth' or 'error')
+// If there's an error display the message in order.payment_status_details
+
+{
+    "channel": "JFS34JKDF"
+}

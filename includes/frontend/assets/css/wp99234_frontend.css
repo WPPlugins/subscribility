@@ -1,0 +1,36 @@
+#hidden_cc_form{
+    display:none;
+}
+
+.wp99234_meta_item{
+    margin-bottom:40px;
+}
+
+h4.wp99234_meta_title{
+    font-size:16px;
+}
+
+.woocommerce .blockUI.blockOverlay:before {
+    height: 1em;
+    width: 1em;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.5em;
+    margin-top: -.5em;
+    display: block;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    content: "";
+    background: url(../images/ajax-loader.gif) center center;
+    background-size: cover;
+    line-height: 1;
+    text-align: center;
+    font-size: 2em;
+}
+
+p.membership-benefits {
+    display: none;
+}

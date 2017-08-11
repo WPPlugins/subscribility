@@ -1,0 +1,50 @@
+{
+  "customer": {
+    "id": 28579,
+    "fname": "Ben",
+    "lname": "Casey",
+    "email": "bcasey@tigerstrikemedia.com",
+    "billing_address": "73 Jane St",
+    "gender": "m",
+    "phone": "0401974225",
+    "cc_name": "Test Tester",
+    "cc_number": "#### #### #### 1111",
+    "cc_exp_month": "12",
+    "cc_exp_year": "16",
+    "cc_cvv": null,
+    "cc_type": "visa",
+    "delivery_suburb_id": 206,
+    "billing_suburb_id": 206,
+    "delivery_address": "78 Jane St",
+    "birthday": null,
+    "notify_shipments": "",
+    "notify_payments": "1",
+    "notify_newsletters": "",
+    "notify_renewals": "1",
+    "billing_suburb": "Leichhardt, NSW 2040",
+    "delivery_suburb": "Leichhardt, NSW 2040",
+    "delivery_instructions": "",
+    "same_billing": false,
+    "mobile": "0401974225",
+    "company_name": "Tiger Strike Media",
+    "classname": "Customer",
+    "delivery_suburb_name": "Leichhardt",
+    "delivery_suburb_postcode": "2040",
+    "delivery_suburb_state": "NSW",
+
+    "memberships_attributes": [
+      {
+        "membership_type_id": 10182
+      }
+    ],
+    "errors": {}
+  },
+  "src": "wineshow",
+  "user": {
+    "email": "bcasey@tigerstrikemedia.com",
+    "fname": "Ben"
+  }
+}
+
+a:3:{i:0;O:8:"stdClass":35:{s:2:"id";i:10136;s:4:"name";s:19:"One off - 2 bottles";s:19:"min_commitment_unit";s:1:"b";s:8:"benefits";N;s:10:"company_id";i:10078;s:11:"renew_to_id";N;s:13:"duration_unit";s:5:"month";s:18:"delivery_size_unit";s:1:"b";s:15:"delivery_date_1";N;s:15:"delivery_date_2";N;s:15:"delivery_date_3";N;s:15:"delivery_date_4";N;s:15:"delivery_date_5";N;s:15:"delivery_date_6";N;s:7:"enabled";b:1;s:8:"duration";i:1;s:16:"can_change_dates";b:0;s:17:"delivery_fee_type";N;s:12:"delivery_fee";N;s:13:"reward_amount";N;s:11:"reward_unit";N;s:10:"deliveries";i:1;s:13:"delivery_size";i:2;s:8:"discount";N;s:17:"std_case_rounding";N;s:11:"description";N;s:21:"ols_customer_editable";s:1:"y";s:17:"standard_discount";s:2:"5%";s:14:"stock_location";s:5:"stock";s:14:"min_commitment";s:3:"2.0";s:8:"te_group";N;s:11:"sort_weight";N;s:10:"prev_order";b:0;s:9:"classname";s:14:"MembershipType";s:5:"stats";O:8:"stdClass":3:{s:7:"current";i:0;s:6:"active";i:0;s:3:"new";i:0;}}i:1;O:8:"stdClass":35:{s:2:"id";i:10135;s:4:"name";s:19:"Extravagant 2 years";s:19:"min_commitment_unit";s:1:"b";s:8:"benefits";N;s:10:"company_id";i:10078;s:11:"renew_to_id";N;s:13:"duration_unit";s:4:"year";s:18:"delivery_size_unit";s:1:"c";s:15:"delivery_date_1";N;s:15:"delivery_date_2";N;s:15:"delivery_date_3";N;s:15:"delivery_date_4";N;s:15:"delivery_date_5";N;s:15:"delivery_date_6";N;s:7:"enabled";b:1;s:8:"duration";i:2;s:16:"can_change_dates";b:0;s:17:"delivery_fee_type";N;s:12:"delivery_fee";N;s:13:"reward_amount";N;s:11:"reward_unit";N;s:10:"deliveries";i:4;s:13:"delivery_size";i:3;s:8:"discount";N;s:17:"std_case_rounding";N;s:11:"description";N;s:21:"ols_customer_editable";s:1:"n";s:17:"standard_discount";s:3:"20%";s:14:"stock_location";s:5:"stock";s:14:"min_commitment";s:5:"144.0";s:8:"te_group";N;s:11:"sort_weight";N;s:10:"prev_order";b:0;s:9:"classname";s:14:"MembershipType";s:5:"stats";O:8:"stdClass":3:{s:7:"current";i:1;s:6:"active";i:1;s:3:"new";i:1;}}i:2;O:8:"stdClass":35:{s:2:"id";i:10134;s:4:"name";s:11:"budget 1 yr";s:19:"min_commitment_unit";s:1:"b";s:8:"benefits";s:19:"Benefit 1
+Benefit 2";s:10:"company_id";i:10078;s:11:"renew_to_id";N;s:13:"duration_unit";s:4:"year";s:18:"delivery_size_unit";s:1:"c";s:15:"delivery_date_1";N;s:15:"delivery_date_2";N;s:15:"delivery_date_3";N;s:15:"delivery_date_4";N;s:15:"delivery_date_5";N;s:15:"delivery_date_6";N;s:7:"enabled";b:1;s:8:"duration";i:1;s:16:"can_change_dates";b:0;s:17:"delivery_fee_type";N;s:12:"delivery_fee";N;s:13:"reward_amount";i:1;s:11:"reward_unit";s:6:"dollar";s:10:"deliveries";i:1;s:13:"delivery_size";i:1;s:8:"discount";N;s:17:"std_case_rounding";N;s:11:"description";s:154:"El Cheapo way to get your neighbours to notice you are a wine buff who si climbing up the social ladder, as soon as that startup of yours will take off...";s:21:"ols_customer_editable";s:1:"y";s:17:"standard_discount";s:3:"10%";s:14:"stock_location";s:5:"stock";s:14:"min_commitment";s:4:"12.0";s:8:"te_group";N;s:11:"sort_weight";N;s:10:"prev_order";b:0;s:9:"classname";s:14:"MembershipType";s:5:"stats";O:8:"stdClass":3:{s:7:"current";i:0;s:6:"active";i:0;s:3:"new";i:0;}}}
